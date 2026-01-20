@@ -28,7 +28,7 @@ export default function Comments({ gistId, onClose }: CommentsProps) {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/gists/${gistId}/comments`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/gists/${gistId}/comments`);
       setComments(response.data);
       setLoading(false);
     } catch (error) {
@@ -42,7 +42,7 @@ export default function Comments({ gistId, onClose }: CommentsProps) {
     if (!newComment.trim()) return;
 
     try {
-      await axios.post(`http://localhost:8000/api/gists/${gistId}/comments`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/gists/${gistId}/comments`, {
         author: author.trim() || "Anonymous",
         content: newComment,
       });

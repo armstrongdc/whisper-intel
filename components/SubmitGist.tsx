@@ -21,7 +21,7 @@ export default function SubmitGist({ onClose, onSubmit }: SubmitGistProps) {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/api/gists", {
+      await axios.post("`${process.env.NEXT_PUBLIC_API_URL}/api/gists`", {
         title,
         content,
         category,

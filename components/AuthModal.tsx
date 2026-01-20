@@ -28,7 +28,7 @@ export default function AuthModal({ onClose, onSuccess }: AuthModalProps) {
         ? { username, password }
         : { username, email, password };
 
-      const response = await axios.post(`http://localhost:8000${endpoint}`, data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}``, data);
 
       if (response.data.error) {
         setError(response.data.error);
