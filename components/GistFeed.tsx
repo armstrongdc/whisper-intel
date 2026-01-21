@@ -38,7 +38,7 @@ export default function GistFeed() {
 
   const fetchGists = async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/gists`);
+      const response = const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/gists`);
       setGists(response.data);
       setLoading(false);
     } catch (error) {
@@ -74,7 +74,7 @@ export default function GistFeed() {
 
   const handleVote = async (gistId: string, value: number) => {
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/gists`/${gistId}/vote`, { value });
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/gists/${gistId}/vote`, { value });
       fetchGists();
     } catch (error) {
       console.error("Error voting:", error);
